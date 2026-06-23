@@ -1,7 +1,18 @@
 import js from "@eslint/js";
 import globals from "globals";
-import { defineConfig } from "eslint/config";
 
-export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs}"], plugins: { js }, extends: ["js/recommended"], languageOptions: { globals: globals.node } },
-]);
+export default [
+  {
+    files: ["**/*.js"],
+    languageOptions: {
+      globals: globals.node,
+    },
+    rules: {
+      "no-debugger": "error",
+      "semi": ["error", "always"],
+      "func-call-spacing": ["error", "never"],
+      "no-multi-spaces": "error"
+    },
+  },
+  js.configs.recommended,
+];
